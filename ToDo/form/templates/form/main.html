@@ -1,0 +1,14 @@
+{% extends 'form/layout.html'%}
+
+{% block link %}
+{% endblock %}
+
+{% block titile%}
+    main page
+{% endblock%}
+ 
+{% block body %}
+    email : {{request.user.email}}
+    pass :   {{request.user.password}}
+    username : {{request.user.username}}
+{% endblock%}

@@ -1,0 +1,110 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial,serif;
+    font-weight: 600;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+}
+main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content{
+    width:65%;
+    height:75%;
+    background-color: aqua;
+    display: flex;
+    /* overflow: hidden; */
+}
+
+.content .wrapper{
+    flex:1 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px black;
+}
+
+
+.content .image{
+    align-self: center;
+    background-color: rgb(255, 255, 255);
+    flex:1 1 0;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+
+.content .image img{
+   height: 700px;
+   width:500px;
+
+    
+}
+
+
+
+#regform .dif{
+    display: flex;
+    flex-direction: column;
+    gap:15%;
+}
+#regform .btns {
+    display: flex;
+    align-items: flex-end;
+    height: fit-content;
+    width: 100%;
+    justify-content: start;
+    gap:7%;
+
+}
+#regform .dif input:active,
+#regform .dif input:hover,
+#regform .dif input:focus,
+#regform .dif input{
+    border: none;
+    border-bottom: 2px solid white;
+    outline: none;
+    fill:none;
+    background-color: transparent;
+}
+
+
+.registration{
+    height: 85%;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 5%;
+}
+
+#regform {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: repeat(6,1fr);
+}
+
+#agree {
+    align-self: center;
+}
+
+#registerbttn:disabled{
+    background-color: beige;
+    color:red;
+}

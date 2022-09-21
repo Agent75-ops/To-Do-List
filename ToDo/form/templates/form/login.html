@@ -1,0 +1,69 @@
+{% extends "form/layout.html" %}
+{% load static %}
+
+{% block link %} 
+ <link rel="stylesheet" href="{% static 'styles.css'%}">
+{% endblock %}
+
+{% block title%}
+    login
+{% endblock %}
+
+
+{% block body %}
+    <div class="login-container"> 
+        <div class="wrapper">
+            <div class="signin">
+                <h1>Sign In</h1>
+                <form>
+                    {% csrf_token %}
+                    <div class="input" id="username" >
+                        <label>username</label>
+                        <input type="text" name="username" autocomplete="off" autofocus>
+                    </div>
+                    <div class="input" id="pass">
+                        <label>password</label>
+                        <input type="password" name="password" autocomplete="off">
+                    </div class="input">
+
+
+                    <div id='remember'>
+                        <input type="checkbox" value="Isremember" id="rememberme"> 
+                        <label for="rememberme">Remember Me</label>
+                    </div>
+                    
+                    <input type="submit" id="submit">
+                    <p>Don't have an account ? <a href="{% url 'form:registerUser'%}">Sign up</a></p>
+                </form>
+            </div>
+            <div class="socialmedia">
+                <h3>login with social media</h3>
+                <div class="buttons">   
+                    <!-- Facebook -->  
+                    <a class="btn btn-primary" style="border-radius:30px;padding:0;line-height:0;background-color: #3b5998;" href="#!" role="button">
+                        <ion-icon name="logo-facebook" style="padding:5px;margin:0;font-size: 30px;"></ion-icon>
+                    </a>
+                    <!-- Twitter -->
+                    <a class="btn btn-primary btn-lg" style="border-radius:30px;padding:0;line-height:0;background-color: #55acee;" href="#!" role="button">
+                        <ion-icon name="logo-twitter" style="padding:5px;margin:0;font-size: 30px;"></ion-icon>
+                    </a>
+                    <!-- Instagram -->
+                    <a class="btn btn-primary" style="border-radius:30px;padding:0;line-height:0;background-color: #ac2bac;" href="#!" role="button"> 
+                        <ion-icon name="logo-instagram" style="padding:5px;margin:0;font-size: 30px;"></ion-icon>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="image">
+            <img id="ash" src="{% static '/imgs/1.jpg' %}" alt="Ash">
+        </div>
+    </div>
+
+
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+{% endblock %}

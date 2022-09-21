@@ -1,0 +1,115 @@
+{%extends "form/layout.html"%}
+{% load static %}
+
+
+{% block link %} 
+ <link rel="stylesheet" href="{% static 'styles2.css'%}">
+{% endblock %}
+
+{% block title%}
+    register
+{% endblock %}
+
+{% block body %}
+<main>
+    <div class="content">
+        <div class="image">
+            <img src="{% static 'imgs/44.jpg'%}" alt="writing">
+        </div>
+        <div class="wrapper">
+            <div class="registration">
+                <h2>Register !  <span style="margin-left:3rem;color:red;font-size: 1rem;">{{error}}</span></h2>
+                <form id="regform" action="" method="post">
+                    {%csrf_token%}
+
+                    <!-- username  -->
+                    <div class="dif">
+                        <label for="name_box">Name</label>
+                        <input type="text" autocomplete="off" name="name" id="name_box" required> 
+                        <span style="transform:translateY(-.6rem); color:red;">{{uerror}}</span>
+                    </div>
+
+
+                    <!-- email -->
+                    <div class="dif">
+                        <label for="email_box">Email</label>
+                        <input type="Email" autocomplete="off" name="email" id="email_box" required>
+                        <span style="transform:translateY(-.6rem); color:red;">{{emailerror}}</span>
+                    </div>
+
+                    <!-- password -->
+                    <div class="dif">
+                        <label for="pass_box">Password</label>
+                        <input type="Password" autocomplete="off" name="pass" id="pass_box" required>
+                        <span id="perr" style="transform:translateY(-.6rem); color:red; display:none;">password required !</span>
+                    </div>
+
+                    <!-- confirm password -->
+                    <div class="dif">
+                        <label for="conf_box">Confirm Password</label>
+                        <input type="Password" autocomplete="off" name="confpass" id="conf_box">
+                        <span style="transform:translateY(-.6rem); color:red;">{{perror}}</span>
+                    </div>
+
+                    <!-- agree checkbox -->
+                    <div id="agree">
+                        <input id="agree" type="checkbox">
+                        <label for="agree"><p>Agree to our <a href="#">Terms and Conditions</a></p></label>
+                    </div>
+
+                    <!-- buttons  -->
+                    <div class="btns">
+                        <button type="submit" value="Register" id="registerbttnn" class="btn btn-primary btn-lg">Register</button>
+                        <p>Or</p>
+                        <a href="{% url 'form:loginUser'%}" class="btn btn-primary btn-xs">Sign in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+<script>
+    let checkbox= document.getElementById("agree")
+    let registerBtn = document.getElementById("registerbttnn")
+
+    let pass = document.getElementById("pass_box")
+    let perror = document.getElementById("perr")
+    // let confpass = document.getElementsById("agconf_boxree")
+    // let email = document.getElementsById("email_box")
+    // let name = document.getElementsById("name_box")
+   
+
+
+    
+    
+    window.onload= ()=>{
+        
+        registerBtn.disabled = true;
+
+        checkbox.addEventListener('change',function(e){
+                if (e.target.checked == true){
+                    registerBtn.disabled = false;
+                }else{
+                    registerBtn.disabled = true;
+                }
+            })
+        }
+   
+
+        registerBtn.addEventListener('click', function(e){
+            console.log(pass.value)
+            if (pass.value.length == 0){
+                e.preventDefault()
+                perror.style.display = "inline"
+            }
+            else {
+                perror.style.display = 'none'
+            }
+        })
+
+</script>
+{% endblock %}
