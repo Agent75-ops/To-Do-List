@@ -8,12 +8,10 @@ from django.contrib.auth import login, logout, authenticate
 from .models import Users
 
 def login_user(request) :
-    print("fuc-------------dddddddddddddddddd--------------------------------llk")
     if request.method == "POST" :
         email = request.POST['email']
         passs= request.POST['password']
         auth = authenticate(username=email, password=passs)
-        print("fuc---------------------------------------------llk")
         if auth is not None : 
             login(request,request.user)
             return HttpResponseRedirect(reverse("form:main"))
