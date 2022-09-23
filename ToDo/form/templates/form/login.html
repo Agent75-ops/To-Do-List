@@ -15,14 +15,14 @@
         <div class="wrapper">
             <div class="signin">
                 <h1>Sign In</h1>
-                {% if error %}
-                    <p style="color:red;">{{error}}</p>
-                {% endif %}
-                <form>
+                
+                    <p style="display:inline;color:red;">{{error}}</p>
+                
+                <form action="{% url 'form:loginUser'%}" method="post">
                     {% csrf_token %}
                     <div class="input" id="username" >
                         <label>email</label>
-                        <input type="text" name="email" autocomplete="off" autofocus>
+                        <input type="email" name="email" autocomplete="off" autofocus>
                     </div>
                     <div class="input" id="pass">
                         <label>password</label>
